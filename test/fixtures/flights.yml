@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flight_number: MyText
+  origin: MyText
+  destination: MyText
+  departure_date: 2016-04-12
+
+two:
+  flight_number: MyText
+  origin: MyText
+  destination: MyText
+  departure_date: 2016-04-12
