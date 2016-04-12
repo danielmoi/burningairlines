@@ -30,3 +30,9 @@ User.destroy_all
 user1 = User.create({ username: 'admin', email: 'admin@ga.com', password: 'chicken', admin: true });
 user2 = User.create({ username: 'happy', email: 'happy@happy.com', password: 'chicken', admin: false });
 user3 = User.create({ username: 'a', email: 'a@a.com', password: 'chicken', admin: false });
+user4 = User.create({ username: 'b', email: 'b@b.com', password: 'chicken', admin: false });
+user5 = User.create({ username: 'c', email: 'c@c.com', password: 'chicken', admin: false });
+
+user1.flights << flight1
+user2.flights << flight1
+user3.flights << flight1
