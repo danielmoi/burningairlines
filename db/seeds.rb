@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Flight.destroy_all
-flight1 = Flight.create({ flight_number: 'BA432', origin: 'Sydney', destination: 'London', departure_date: '2016-04-11'});
-flight2 = Flight.create({ flight_number: 'BA122', origin: 'New York', destination: 'San Francisco', departure_date: '2016-04-10'});
-flight3 = Flight.create({ flight_number: 'BA765', origin: 'Lisbon', destination: 'Tokyo', departure_date: '2016-04-18'});
+flight1 = Flight.create({ flight_number: 'BA432', origin: 'SYD', destination: 'LHR', departure_date: '2016-04-11'});
+flight2 = Flight.create({ flight_number: 'BA122', origin: 'JFK', destination: 'SFO', departure_date: '2016-04-10'});
+flight3 = Flight.create({ flight_number: 'BA765', origin: 'LIS', destination: 'GIG', departure_date: '2016-04-18'});
+flight4 = Flight.create({ flight_number: 'BA264', origin: 'BOM', destination: 'HND', departure_date: '2016-04-18'});
