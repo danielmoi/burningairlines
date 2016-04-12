@@ -1,4 +1,4 @@
- .flight-details {
+.flight-details {
   display: inline-block;
   width: 13%;
 }
@@ -6,26 +6,21 @@
 .flight-details__destination {
   // width: 10%;
 }
-
 .flight-details__heading {
   font-weight: 700;
 }
-
 .flight-details__flight-number {
   color: tomato;
 }
-
 .flights-main__container {
   max-width: 900px;
   margin: 0 auto;
 }
-
 .flight-reservation__container {
   max-width: 80%;
   margin: 50px auto;
   text-align: center;
 }
-
 .seats__row {
   height: 50px;
   padding: 5px;
@@ -33,7 +28,13 @@
   margin: 10px 0;
   display: inline-block;
 }
-
+.seats__row:before {
+  content: 'A';
+  height: 50px;
+  line-height: 40px;
+  display: inline-block;
+  vertical-align: top;
+}
 .seats__col {
   height: 40px;
   width: 60px;
