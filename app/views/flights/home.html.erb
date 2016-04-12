@@ -8,8 +8,15 @@
 
   <h2>Flights</h2>
   <div class="flight-details flight-details__heading">Departure Date</div>
-  <div class="flight-details flight-details__heading">Flight Number</div>
-  <div class="flight-details flight-details__heading">From &gt; To </div>
+  <div class="flight-details flight-details__heading">Flight #</div>
+  <div class="flight-details flight-details__heading">From</div>
+  <div class="flight-details flight-details__heading">To</div>
+  <div class="flight-details flight-details__heading">Airplane</div>
+  <div class="flight-details flight-details__heading">Total Seats</div>
+  <div class="flight-details flight-details__heading">Seats Available</div>
+
+
+
   <div id="flights"></div>
 
 
@@ -18,5 +25,8 @@
 <script id="flightViewTemplate" type="text/template">
   <div class="flight-details"><%%= departure_date %></div>
   <div class="flight-details"><%%= flight_number %></div>
-  <div class="flight-details"><%%= origin %> &gt; <%%= destination %> </div>
+  <div class="flight-details flight-details__origin"><%%= origin %></div>
+  <div class="flight-details flight-details__destination"><%%= destination %></div>
+  <div class="flight-details"><%%= airplane.name %></div>
+  <div class="flight-details"><%%= airplane.seatsTotal %></div>
 </script>

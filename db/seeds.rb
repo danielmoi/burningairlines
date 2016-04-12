@@ -17,7 +17,7 @@ flight6 = Flight.create({ flight_number: 'BA109', origin: 'BER', destination: 'A
 Airplane.destroy_all
 airplane1 = Airplane.create({ name: 'Flame', rows: 5, columns: 8 });
 airplane2 = Airplane.create({ name: 'Firestorm', rows: 10, columns: 6 });
-airplane3 = Airplane.create({ name: 'Candle', rows: 15, columns: 4 });
+airplane3 = Airplane.create({ name: 'Candle', rows: 15, columns: 3 });
 
 airplane1.flights << flight1
 airplane1.flights << flight2
