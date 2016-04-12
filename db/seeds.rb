@@ -25,3 +25,8 @@ airplane2.flights << flight3
 airplane2.flights << flight4
 airplane3.flights << flight5
 airplane3.flights << flight6
+
+User.destroy_all
+user1 = User.create({ username: 'admin', email: 'admin@ga.com', password: 'chicken', admin: true });
+user2 = User.create({ username: 'happy', email: 'happy@happy.com', password: 'chicken', admin: false });
+user3 = User.create({ username: 'a', email: 'a@a.com', password: 'chicken', admin: false });
