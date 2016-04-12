@@ -3,7 +3,12 @@ nav {
   text-align: center;
 }
 
-a{
+nav a {
   padding: 20px;
   text-decoration: none;
+}
+
+nav a:hover {
+  color: blue;
+  background-color: white;
 }

@@ -10,7 +10,7 @@
 
 
   <nav>
-    <%= link_to 'Happy Flights', flights_path %>
+    <%= link_to 'Happy Flights', root_path %>
     <%= link_to 'All flights', flights_path %>
     <% if @current_user.present? %>
        <a href="/users/<%=@current_user.id%>"> Profile</a>
