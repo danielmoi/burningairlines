@@ -8,6 +8,28 @@
 </head>
 <body>
 
+
+  <nav>
+    <%= link_to 'Happy Flights', flights_path %>
+    <%= link_to 'All flights', flights_path %>
+    <% if @current_user.present? %>
+       <a href="/users/<%=@current_user.id%>"> Profile</a>
+       <a href="/reservations/<%=@current_user.id %>">My Reservations</a>
+       <%= link_to "Logout #{@current_user.username.upcase}", login_path, :method => :delete%>
+          <% if @current_user.admin? %>
+            <%= link_to "Add Flight", new_flight_path %></a>
+            <%= link_to "Add Airplane", new_airplane_path %></a>
+            <%= link_to "All Users", users_path %></a>
+             <% end %>
+          <% else %>
+          <%= link_to "Sign in", signup_path %>
+         <%= link_to "Login", login_path %>
+        <% end %>
+      </nav>
+    <hr>
+
+
+
 <%= yield %>
 
 </body>

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorise, only: [:index]
 
   # GET /users
   # GET /users.json
@@ -26,8 +27,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
+
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -71,4 +75,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :email, :password_digest)
     end
+
+    def authorise
+      redirect_to flights_path unless (@current_user.present? && @current_user.admin?)
+    end
+
 end
