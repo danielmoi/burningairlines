@@ -8,9 +8,12 @@
 #  password_digest :text
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  admin           :boolean          default("false")
 #
 
 class User < ActiveRecord::Base
+  has_secure_password
+  validates :email, :presence => true, :uniqueness => true
   has_many :flights, :through => :reservations
   has_many :reservations
 end

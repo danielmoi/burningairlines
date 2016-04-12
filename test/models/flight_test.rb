@@ -9,6 +9,7 @@
 #  departure_date :date
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  airplane_id    :integer          default("0")
 #
 
 require 'test_helper'
