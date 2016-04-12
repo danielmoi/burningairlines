@@ -15,3 +15,24 @@
   max-width: 900px;
   margin: 0 auto;
 }
+
+.flight-reservation__container {
+  max-width: 80%;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.seats__row {
+  height: 40px;
+  background: gainsboro;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+.seats__col {
+  height: 40px;
+  width: 60px;
+  border: 1px solid tomato;
+  margin: 0 10px;
+  display: inline-block;
+}
