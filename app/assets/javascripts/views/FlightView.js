@@ -3,6 +3,15 @@ var app = app || {};
 app.FlightView = Backbone.View.extend({
   tagName: 'div',
 
+  events: {
+    'click .flight-details': 'displayFlight'
+  },
+
+  displayFlight: function(event) {
+    console.log(event);
+    console.log(this.model);
+  },
+
   render: function(flight) {
 
     console.log('flightView initiated');

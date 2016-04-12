@@ -5,6 +5,7 @@ app.FlightReservationView = Backbone.View.extend({
   el: '#flight-seats',
 
   render: function(flight) {
+    this.$el.empty();
     $('#flight-seats__heading').text('Seats');
     console.log('flightReservationView initiated');
     var rows = this.model.attributes.airplane.rows;
@@ -16,7 +17,7 @@ app.FlightReservationView = Backbone.View.extend({
         var $col = $('<div>', { class: 'seats__col', 'data-seat-id': col + 1 });
         $row.append( $col );
       });
-      $('#flight-reservation').append( $row );
+      $('#flight-seats').append( $row );
     });
   }
 

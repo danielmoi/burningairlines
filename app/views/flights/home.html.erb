@@ -20,7 +20,7 @@
   <div id="flights"></div>
 
   <div id="flight-reservation" class="flight-reservation__container">
-    <h3>Seats</h3>
+    <h3 id="flight-seats__heading"></h3>
     <div id="flight-seats"></div>
   </div>
 
@@ -29,7 +29,9 @@
 
 <script id="flightViewTemplate" type="text/template">
   <div class="flight-details"><%%= departure_date %></div>
-  <div class="flight-details"><%%= flight_number %></div>
+  <div class="flight-details flight-details__flight-number">
+    <a href="#<%%= id %>"><%%= flight_number %></a>
+  </div>
   <div class="flight-details flight-details__origin"><%%= origin %></div>
   <div class="flight-details flight-details__destination"><%%= destination %></div>
   <div class="flight-details"><%%= airplane.name %></div>

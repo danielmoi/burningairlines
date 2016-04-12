@@ -11,6 +11,10 @@
   font-weight: 700;
 }
 
+.flight-details__flight-number {
+  color: tomato;
+}
+
 .flights-main__container {
   max-width: 900px;
   margin: 0 auto;
@@ -23,8 +27,9 @@
 }
 
 .seats__row {
-  height: 40px;
-  background: gainsboro;
+  height: 50px;
+  padding: 5px;
+  background: rgba(200,200,200,0.2);
   margin: 10px 0;
   display: inline-block;
 }
@@ -35,4 +40,5 @@
   border: 1px solid tomato;
   margin: 0 10px;
   display: inline-block;
+  cursor: pointer;
 }
