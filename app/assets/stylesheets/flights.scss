@@ -1,6 +1,10 @@
 .flight-details {
   display: inline-block;
-  width: 20%;
+  width: 13%;
+}
+.flight-details__origin,
+.flight-details__destination {
+  // width: 10%;
 }
 
 .flight-details__heading {
@@ -8,6 +12,6 @@
 }
 
 .flights-main__container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
