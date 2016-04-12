@@ -23,6 +23,7 @@
           <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to "Flights", flights_path %></li>
+            <li><%= link_to "Airplanes", airplanes_path %></li>
             <% if @current_user.present? %>
             <li><a href="/users/<%=@current_user.id%>">Profile</a></li>
             <li><a href="/reservations/<%=@current_user.id%>">Reservations</a></li>
