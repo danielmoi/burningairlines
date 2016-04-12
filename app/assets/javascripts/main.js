@@ -1,1 +1,7 @@
-console.log(Backbone, _);
+var app = app || {};
+
+$(document).ready(function() {
+
+  app.router = new app.AppRouter();
+  Backbone.history.start();
+});
