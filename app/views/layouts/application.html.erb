@@ -27,7 +27,7 @@
             <% if @current_user.present? %>
             <li><a href="/users/<%=@current_user.id%>">Profile</a></li>
             <li><a href="/reservations/<%=@current_user.id%>">Reservations</a></li>
-            <li><%= link_to "LOGOUT #{@current_user.username.upcase}", login_path, :method => :delete%></li>
+            <li><%= link_to "Logout #{@current_user.username.capitalize}", login_path, :method => :delete%></li>
             <li class="dropdown">
               <% if @current_user.admin? %>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">ADMIN
