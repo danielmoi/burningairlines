@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'session/new'
-
+  get 'flights/home' => 'flights#home'
   resources :reservations
   resources :airplanes
   resources :flights
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
+
 
 
 

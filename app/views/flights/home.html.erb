@@ -1,0 +1,22 @@
+<div class="flights-main__container">
+  <div id="main"></div>
+</div>
+
+
+<script id="appViewTemplate" type="text/template">
+  <h1>Flights Home Page</h1>
+
+  <h2>Flights</h2>
+  <div class="flight-details flight-details__heading">Departure Date</div>
+  <div class="flight-details flight-details__heading">Flight Number</div>
+  <div class="flight-details flight-details__heading">From &gt; To </div>
+  <div id="flights"></div>
+
+
+</script>
+
+<script id="flightViewTemplate" type="text/template">
+  <div class="flight-details"><%%= departure_date %></div>
+  <div class="flight-details"><%%= flight_number %></div>
+  <div class="flight-details"><%%= origin %> &gt; <%%= destination %> </div>
+</script>
