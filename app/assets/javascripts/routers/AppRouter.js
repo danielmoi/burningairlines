@@ -16,6 +16,7 @@ app.AppRouter = Backbone.Router.extend({
         model: flight
       });
       flightView.render();
+      $('.flight-selected').removeClass('.flight-selected');
     });
   },
 

@@ -76,7 +76,7 @@ app.FlightReservationView = Backbone.View.extend({
 
   render: function(flight) {
 
-    $('#flight-seats, #main').empty();
+    $('#flight-seats').empty();
     $('#flight-seats__heading').text('Seats');
 
     var arrLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';

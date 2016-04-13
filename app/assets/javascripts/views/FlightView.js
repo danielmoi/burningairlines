@@ -2,20 +2,23 @@ var app = app || {};
 
 app.FlightView = Backbone.View.extend({
   tagName: 'div',
+  className: 'flight-details__row',
 
   events: {
-    'click .flight-details': 'displayFlight'
+    'click .flight-details__flight-number': 'displayFlight'
   },
 
   displayFlight: function(event) {
 
     // console.log(event);
     // console.log(this.model);
+    console.log(this.$el);
+    this.$el.addClass('flight-selected');
+    $('.flight-details__row').not('.flight-selected').hide();
   },
 
 
   render: function(flight) {
-
 
     // console.log('flightView initiated');
     // console.log(this.model.attributes);
