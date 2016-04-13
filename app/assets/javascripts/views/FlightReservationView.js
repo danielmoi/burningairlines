@@ -78,11 +78,12 @@ app.FlightReservationView = Backbone.View.extend({
 
     $('#flight-seats, #main').empty();
     $('#flight-seats__heading').text('Seats');
-    // console.log('flightReservationView initiated');
+
     var arrLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var rowNumbers = this.model.attributes.airplane.rows;
     var cols = this.model.attributes.airplane.columns;
     var $row = $('<div>', { class: 'seats__row' });
+
     $('#main').append('<h2>Choose your seat for the flight</h2>');
 
     $('#flight-seats__headings--columns').append($row);
@@ -95,7 +96,6 @@ app.FlightReservationView = Backbone.View.extend({
         $row.append( $col );
       });
       $('#main').append( $row );
-
     });
 
     this.renderTaken();
