@@ -4,9 +4,9 @@ class SessionController < ApplicationController
 
   def create
     user = User.find_by :email => params[:email]
-    if user.present? 
+    if user.present?
       session[:user_id] = user.id
-      redirect_to users_path
+      redirect_to user
     else
       flash[:error] = "Invalid email or password"
       redirect_to login_path
@@ -15,7 +15,7 @@ class SessionController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to flights_path
+    redirect_to root_path
   end
 
 end
