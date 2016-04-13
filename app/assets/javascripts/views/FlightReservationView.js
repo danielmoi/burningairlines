@@ -64,9 +64,7 @@ app.FlightReservationView = Backbone.View.extend({
         $row.append( $col );
       });
       $('#main').append( $row );
-
     });
     $('#main').append('<button id="flight-reserve" class="btn">Confirm Reservation</button>');
-
   }
 });
