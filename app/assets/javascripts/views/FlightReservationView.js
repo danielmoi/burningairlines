@@ -9,10 +9,19 @@ app.FlightReservationView = Backbone.View.extend({
   },
 
   reserveSeat: function(event) {
-    // console.log(event.currentTarget.dataset.seatId);
-    console.dir(this.model);
-    console.dir(app.current_user);
-    console.log(this.model.get('users'));
+    console.log(event.currentTarget.dataset.seatId); // reservation.seat_id
+    console.log(this.model.id); // reservation.flight_id
+    console.log(app.current_user.id); // reservation.user_id
+    // console.log(this.model.get('users'));
+    // this.model.reservation
+    // Create a new reservation model
+    app.reservation = new app.Reservation({
+      user_id: app.current_user.id,
+      flight_id: this.model.id,
+      seat_id: event.currentTarget.dataset.seatId
+    });
+    console.log(app.reservation.toJSON());
+    app.reservation.save();
 
   },
 
