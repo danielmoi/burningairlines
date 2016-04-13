@@ -82,11 +82,12 @@ app.FlightReservationView = Backbone.View.extend({
     var arrLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var rowNumbers = this.model.attributes.airplane.rows;
     var cols = this.model.attributes.airplane.columns;
+
+    $('#flight-reservation').prepend('<h2>Choose your seat for the flight</h2>');
+
     var $row = $('<div>', { class: 'seats__row' });
-
-    $('#main').append('<h2>Choose your seat for the flight</h2>');
-
     $('#flight-seats__headings--columns').append($row);
+
     _.times(rowNumbers, function(rowNumber) {
       var rowLetter = arrLetters[rowNumber];
 
@@ -95,11 +96,11 @@ app.FlightReservationView = Backbone.View.extend({
         var $col = $('<div>', { class: 'seats__col', 'data-seat-id': rowLetter + (col + 1) });
         $row.append( $col );
       });
-      $('#main').append( $row );
+      $('#flight-seats').append( $row );
     });
 
     this.renderTaken();
 
-    $('#main').append('<button id="flight-reserve" class="btn">Confirm Reservation</button>');
+    $('.button-container').append('<button id="flight-reserve" class="btn">Confirm Reservation</button>');
   }
 });

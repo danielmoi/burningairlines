@@ -33,7 +33,7 @@ app.FlightView = Backbone.View.extend({
     // console.log('flightNumber: ' + flightNumber);
     // this.$el.text( flightNumber );
     // console.log(this.$el);
-    this.$el.appendTo('#flight');
+    this.$el.appendTo('#flights');
 
 
 
