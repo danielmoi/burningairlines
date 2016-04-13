@@ -7,6 +7,7 @@
 #  flight_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  seat_id    :string           default("f")
 #
 
 require 'test_helper'
