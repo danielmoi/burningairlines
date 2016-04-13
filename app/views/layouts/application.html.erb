@@ -18,38 +18,50 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> HappyAirline</a>
+            <a class="navbar-brand" href="/">
+              <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+              HappyAirline</a>
           </div>
+
           <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-left">
-            <li><%= link_to "Flights", flights_home_path %></li>
-            <% if @current_user.present? %>
-            <li><a href="/users/<%=@current_user.id%>">Profile</a></li>
-            <li><%= link_to "Logout #{@current_user.username.capitalize}", login_path, :method => :delete%></li>
-            <li class="dropdown">
-              <% if @current_user.admin? %>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">ADMIN
-                <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-header">Admin</li>
-                <li><%= link_to "All Flight", flights_path %></li>
-                <li><%= link_to "Add Flight", new_flight_path %></li>
-                <li><%= link_to "All Planes", airplanes_path %></li>
-                <li><%= link_to "Add Airplane", new_airplane_path %></li>
-                <li><%= link_to "All Users", users_path %></li>
-                <% end %>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "Signup", signup_path %></li>
-            <li><%= link_to "Login", login_path %></li>
-            <% end %>
-          </ul>
-      </ul>
+            <ul class="nav navbar-nav navbar-left">
+
+              <li><%= link_to "All Flights", flights_home_path %></li>
+
+              <% if @current_user.present? %><!-- start nav for users -->
+              <li>
+                <a href="/users/<%=@current_user.id%>">Profile</a>
+              </li>
+
+              <li><%= link_to "Logout #{@current_user.username.capitalize}", login_path, :method => :delete%>
+              </li>
+
+              <li class="dropdown">
+                <% if @current_user.admin? %><!-- start nav for ADMIN -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">ADMIN
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Admin</li>
+                  <li><%= link_to "All Flights", flights_path %></li>
+                  <li><%= link_to "New Flight", new_flight_path %></li>
+                  <li><%= link_to "All Airplanes", airplanes_path %></li>
+                  <li><%= link_to "New Airplane", new_airplane_path %></li>
+                  <li><%= link_to "All Users", users_path %></li>
+                  <% end %>
+                </ul>
+              </li><!-- end of nav for logged-in users and admin users-->
+
+            <% else %><!-- start nav for visitors -->
+              <li><%= link_to "Signup", signup_path %></li>
+              <li><%= link_to "Login", login_path %></li>
+              <% end %><!-- end nav for visitors -->
+
+            </ul>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 </nav>
 
 <div class="yield-container">
