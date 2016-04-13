@@ -12,6 +12,12 @@ $(document).ready(function() {
   // get flights from SERVER
   app.flights.fetch();
 
+  // keep updating flights collection
+  window.setInterval(function() {
+    app.flights.fetch();
+    // console.log('updating flights collection');
+  }, 4000);
+
   app.router = new app.AppRouter();
   Backbone.history.start();
 });

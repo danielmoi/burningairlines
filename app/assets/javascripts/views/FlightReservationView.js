@@ -2,6 +2,11 @@ var app = app || {};
 
 app.FlightReservationView = Backbone.View.extend({
 
+  initialize: function() {
+
+
+  },
+
   el: '#main',
 
   events: {
@@ -76,33 +81,42 @@ app.FlightReservationView = Backbone.View.extend({
 
   render: function(flight) {
 
-
-
-    $('#flight-seats, #main').empty();
+    $('#flight-seats').empty();
     $('#flight-seats__heading').text('Seats');
 
     var arrLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var rowNumbers = this.model.attributes.airplane.rows;
     var cols = this.model.attributes.airplane.columns;
+
+    $('#flight-reservation').prepend('<h2>Choose your seat for the flight</h2>');
+
     var $row = $('<div>', { class: 'seats__row' });
+    var $col = $('<div>', { class: 'seats__col--label' });
+    $row.append( $col );
 
-    $('#main').append('<h2>Choose your seat for the flight</h2>');
-
-
+    _.times(cols, function(col) {
+      var $col = $('<div>', { class: 'seats__col--label', html: (col + 1) });
+      $row.append( $col );
+    });
     $('#flight-seats__headings--columns').append($row);
+
+
     _.times(rowNumbers, function(rowNumber) {
       var rowLetter = arrLetters[rowNumber];
-
       var $row = $('<div>', { class: 'seats__row' });
+      var $col = $('<div>', { class: 'seats__row--label', html: rowLetter});
+      $row.append($col);
+
+
       _.times(cols, function(col) {
         var $col = $('<div>', { class: 'seats__col', 'data-seat-id': rowLetter + (col + 1) });
         $row.append( $col );
       });
-      $('#main').append( $row );
+      $('#flight-seats').append( $row );
     });
 
     this.renderTaken();
 
-    $('#main').append('<button id="flight-reserve" class="btn">Confirm Reservation</button>');
+    $('.button-container').append('<button id="flight-reserve" class="btn">Confirm Reservation</button>');
   }
 });
