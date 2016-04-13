@@ -2,6 +2,11 @@ var app = app || {};
 
 app.FlightReservationView = Backbone.View.extend({
 
+  initialize: function() {
+
+
+  },
+
   el: '#main',
 
   events: {

@@ -1,6 +1,7 @@
 var app = app || {};
 
 app.FlightView = Backbone.View.extend({
+
   tagName: 'div',
   className: 'flight-details__row',
 
