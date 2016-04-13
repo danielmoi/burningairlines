@@ -22,9 +22,12 @@ app.FlightView = Backbone.View.extend({
   render: function(flight) {
 
     // console.log('flightView initiated');
-    // console.log(this.model.attributes);
+    console.log(this.model.attributes);
 
     this.model.attributes.airplane.seatsTotal = this.model.attributes.airplane.rows * this.model.attributes.airplane.columns;
+
+    this.model.attributes.airplane.seatsAvailable = this.model.attributes.airplane.seatsTotal - this.model.attributes.reservations.length;
+
 
     var flightViewHTML = $('#flightViewTemplate').html();
     var flightViewTemplate = _.template( flightViewHTML );

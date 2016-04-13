@@ -15,7 +15,7 @@ $(document).ready(function() {
   // keep updating flights collection
   window.setInterval(function() {
     app.flights.fetch();
-    console.log('updating flights collection');
+    // console.log('updating flights collection');
   }, 4000);
 
   app.router = new app.AppRouter();

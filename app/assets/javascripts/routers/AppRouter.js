@@ -17,7 +17,16 @@ app.AppRouter = Backbone.Router.extend({
       });
       flightView.render();
       $('.flight-selected').removeClass('.flight-selected');
+      // keep refreshing render of flights view
+      window.setInterval(function() {
+        flightView.render();
+        console.log('updating flight view');
+      }, 4000);
+
     });
+
+
+
   },
 
   flightDetails: function(param) {
@@ -30,7 +39,7 @@ app.AppRouter = Backbone.Router.extend({
     // keep refreshing render of seats grid
     window.setInterval(function() {
       flightReservationView.renderTaken();
-      console.log('updating seats taken');
+      // console.log('updating seats taken');
     }, 4000);
   }
 });
