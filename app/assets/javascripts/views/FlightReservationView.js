@@ -2,7 +2,7 @@ var app = app || {};
 
 app.FlightReservationView = Backbone.View.extend({
 
-  el: '#flight-reservation',
+  el: '#main',
 
   events: {
     'click #flight-reserve': 'reserveSeat',
@@ -76,15 +76,16 @@ app.FlightReservationView = Backbone.View.extend({
 
   render: function(flight) {
 
-    $('#flight-seats').empty();
+    $('#flight-seats, #main').empty();
     $('#flight-seats__heading').text('Seats');
     // console.log('flightReservationView initiated');
     var arrLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var rowNumbers = this.model.attributes.airplane.rows;
     var cols = this.model.attributes.airplane.columns;
     var $row = $('<div>', { class: 'seats__row' });
-    $('#flight-seats__headings--columns').append($row);
+    $('#main').append('<h2>Choose your seat for the flight</h2>');
 
+    $('#flight-seats__headings--columns').append($row);
     _.times(rowNumbers, function(rowNumber) {
       var rowLetter = arrLetters[rowNumber];
 
@@ -93,10 +94,13 @@ app.FlightReservationView = Backbone.View.extend({
         var $col = $('<div>', { class: 'seats__col', 'data-seat-id': rowLetter + (col + 1) });
         $row.append( $col );
       });
-      $('#flight-seats').append( $row );
+      $('#main').append( $row );
+
     });
 
     this.renderTaken();
-  }
 
+    $('#main').append('<button id="flight-reserve" class="btn">Confirm Reservation</button>');
+
+  }
 });
