@@ -13,7 +13,7 @@
   color: tomato;
 }
 .flights-main__container {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
 }
 .flight-reservation__container {
@@ -31,6 +31,7 @@
   margin: 10px 0;
   display: inline-block;
 }
+
 .button-container {
   text-align: center;
   padding: 20px;
@@ -46,4 +47,15 @@
   display: inline-block;
   cursor: pointer;
   vertical-align: top;
+
+}
+.seats__col--label,
+.seats__row--label {
+  height: 40px;
+  width: 60px;
+  margin: 0 10px;
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: top;
+  border: none;
 }

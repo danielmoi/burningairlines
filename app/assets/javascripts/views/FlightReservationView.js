@@ -86,12 +86,23 @@ app.FlightReservationView = Backbone.View.extend({
     $('#flight-reservation').prepend('<h2>Choose your seat for the flight</h2>');
 
     var $row = $('<div>', { class: 'seats__row' });
+    var $col = $('<div>', { class: 'seats__col--label' });
+    $row.append( $col );
+
+    _.times(cols, function(col) {
+      var $col = $('<div>', { class: 'seats__col--label', html: (col + 1) });
+      $row.append( $col );
+    });
     $('#flight-seats__headings--columns').append($row);
+
 
     _.times(rowNumbers, function(rowNumber) {
       var rowLetter = arrLetters[rowNumber];
-
       var $row = $('<div>', { class: 'seats__row' });
+      var $col = $('<div>', { class: 'seats__row--label', html: rowLetter});
+      $row.append($col);
+
+
       _.times(cols, function(col) {
         var $col = $('<div>', { class: 'seats__col', 'data-seat-id': rowLetter + (col + 1) });
         $row.append( $col );
