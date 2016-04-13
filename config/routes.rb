@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'session/new'
   get 'flights/home' => 'flights#home'
   resources :reservations
-
   resources :airplanes
   resources :flights
   resources :users

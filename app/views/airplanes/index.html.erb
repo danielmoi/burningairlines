@@ -19,13 +19,15 @@
         <td><%= airplane.rows %></td>
         <td><%= airplane.columns %></td>
         <td><%= link_to 'Show', airplane %></td>
+        <% if @current_user.present? && @current_user.admin? %>
+        <td><%= link_to 'New Airplane', new_airplane_path %></td>
         <td><%= link_to 'Edit', edit_airplane_path(airplane) %></td>
         <td><%= link_to 'Destroy', airplane, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <% end %>
+
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Airplane', new_airplane_path %>
