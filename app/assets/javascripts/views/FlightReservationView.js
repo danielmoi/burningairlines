@@ -12,13 +12,44 @@ app.FlightReservationView = Backbone.View.extend({
   seat: {},
 
   saveDetails: function(event) {
-    $('.seats__col').empty();
+    $('.seats__col').not('.taken').empty();
+    this.seat = {};
+    if($(event.currentTarget).text() !== '') {
+      return;
+    }
+    // if ($('.seats__col').html() !== '') {
+      // return;
+    // }
     $(event.currentTarget).html(app.current_user.username);
     console.log(event.currentTarget.dataset.seatId);
     this.seat.seat_id = event.currentTarget.dataset.seatId;
     this.seat.flight_id = this.model.id;
     this.seat.user_id = app.current_user.id;
-    console.log(this.seat);
+
+  },
+  renderTaken: function(something) {
+
+    var usersForFlight = app.flights.get(this.model.id).attributes.users;
+
+    var userNames = {};
+    var usersDetails = _.each(usersForFlight, function(element) {
+      var key = element.id; // user_id
+      userNames[key] = element.username;
+    });
+
+    var reservations = this.model.attributes.reservations;
+
+    var takenSeats = _.map(reservations, function(element) {
+      return [element.seat_id, element.user_id];
+    });
+
+    _.each(takenSeats, function(element) {
+      // var userName = users.find(element[1]);
+      var userName = userNames[element[1]];
+      console.log(userName);
+      $('.seats__col[data-seat-id=' + element[0] + ']').html(userName).addClass('taken');
+    });
+
   },
 
   reserveSeat: function(event) {
@@ -64,6 +95,8 @@ app.FlightReservationView = Backbone.View.extend({
       });
       $('#flight-seats').append( $row );
     });
+
+    this.renderTaken();
   }
 
 });
