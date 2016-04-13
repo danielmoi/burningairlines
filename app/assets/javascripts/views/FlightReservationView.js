@@ -8,6 +8,7 @@ app.FlightReservationView = Backbone.View.extend({
     'click .seats__col': 'reserveSeat'
   },
 
+
   reserveSeat: function(event) {
     console.log(event.currentTarget.dataset.seatId); // reservation.seat_id
     console.log(this.model.id); // reservation.flight_id
