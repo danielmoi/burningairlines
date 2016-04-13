@@ -2,23 +2,38 @@ var app = app || {};
 
 app.FlightReservationView = Backbone.View.extend({
 
-  el: '#flight-seats',
+  el: '#flight-reservation',
 
   events: {
-    'click .seats__col': 'reserveSeat'
+    'click #flight-reserve': 'reserveSeat',
+    'click .seats__col': 'saveDetails'
+  },
+
+  seat: {},
+
+  saveDetails: function(event) {
+    this.seat.seat_id = event.currentTarget.dataset.seatId;
+    this.seat.flight_id = this.model.id;
+    this.seat.user_id = app.current_user.id;
+    console.log(this.seat);
   },
 
   reserveSeat: function(event) {
-    console.log(event.currentTarget.dataset.seatId); // reservation.seat_id
-    console.log(this.model.id); // reservation.flight_id
-    console.log(app.current_user.id); // reservation.user_id
+    // console.log(event.currentTarget.dataset.seatId); // reservation.seat_id
+    // console.log(this.model.id); // reservation.flight_id
+    // console.log(app.current_user.id); // reservation.user_id
     // console.log(this.model.get('users'));
     // this.model.reservation
     // Create a new reservation model
+    console.log('click');
+    if (_.isEmpty(this.seat)) {
+      return;
+    }
+
     app.reservation = new app.Reservation({
-      user_id: app.current_user.id,
-      flight_id: this.model.id,
-      seat_id: event.currentTarget.dataset.seatId
+      user_id: this.seat.user_id,
+      flight_id: this.seat.flight_id,
+      seat_id: this.seat.seat_id
     });
     console.log(app.reservation.toJSON());
     app.reservation.save();
@@ -27,7 +42,7 @@ app.FlightReservationView = Backbone.View.extend({
 
   render: function(flight) {
 
-    this.$el.empty();
+    $('#flight-seats').empty();
     $('#flight-seats__heading').text('Seats');
     // console.log('flightReservationView initiated');
     var arrLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
