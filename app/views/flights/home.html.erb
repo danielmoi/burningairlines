@@ -3,8 +3,13 @@
 </div>
 
 
+<script>
+  app.current_user = <%= @user.to_json.html_safe %>;
+</script>
+
 <script id="appViewTemplate" type="text/template">
   <h1>Flight Reservations</h1>
+
 
   <h2>Flights</h2>
   <div class="flight-details flight-details__heading">Date</div>

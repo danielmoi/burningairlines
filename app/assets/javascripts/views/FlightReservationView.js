@@ -14,9 +14,11 @@ app.FlightReservationView = Backbone.View.extend({
   },
 
   render: function(flight) {
+
+    console.log(app.current_user.id);
     this.$el.empty();
     $('#flight-seats__heading').text('Seats');
-    console.log('flightReservationView initiated');
+    // console.log('flightReservationView initiated');
     var arrLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var rowNumbers = this.model.attributes.airplane.rows;
     var cols = this.model.attributes.airplane.columns;
