@@ -1,5 +1,7 @@
 class AirplanesController < ApplicationController
   before_action :set_airplane, only: [:show, :edit, :update, :destroy]
+  before_action :authorise, :only => [:new, :create, :edit, :update, :destroy]
+
 
   # GET /airplanes
   # GET /airplanes.json
@@ -70,5 +72,9 @@ class AirplanesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def airplane_params
       params.require(:airplane).permit(:name, :rows, :columns)
+    end
+
+    def authorise
+      redirect_to airplanes_path unless (@current_user.present? && @current_user.admin?)
     end
 end

@@ -1,5 +1,7 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :authorise, only: [:index, :destroy, :new]
+
 
   # GET /reservations
   # GET /reservations.json
@@ -69,6 +71,10 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:user_id, :flight_id)
+      params.require(:reservation).permit(:user_id, :flight_id, :seat_id)
+    end
+
+    def authorise
+      redirect_to root_path unless (@current_user.present? && @current_user.admin?)
     end
 end

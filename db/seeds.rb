@@ -36,35 +36,14 @@ airplane3.flights << flight6 << flight12 << flight13
 User.destroy_all
 user1 = User.create({ username: 'admin', email: 'admin@ga.com', password: 'chicken', admin: true });
 user2 = User.create({ username: 'happy', email: 'happy@happy.com', password: 'chicken', admin: false });
-user3 = User.create({ username: 'aruna', email: 'aruna@ga.com', password: 'chicken', admin: false });
-user4 = User.create({ username: 'rany', email: 'rany@ga.com', password: 'chicken', admin: false });
-user5 = User.create({ username: 'dani', email: 'dani@ga.com', password: 'chicken', admin: false });
-user6 = User.create({ username: 'sam', email: 'sam@ga.com', password: 'chicken', admin: false });
-user7 = User.create({ username: 'jenn', email: 'jenn@ga.com', password: 'chicken', admin: false });
-user8 = User.create({ username: 'jack', email: 'jack@ga.com', password: 'chicken', admin: false });
-user9 = User.create({ username: 'joel', email: 'joel@ga.com', password: 'chicken', admin: false });
-user10 = User.create({ username: 'chirs', email: 'chirs@ga.com', password: 'chicken', admin: false });
+user3 = User.create({ username: 'a', email: 'a@a.com', password: 'chicken', admin: false });
+user4 = User.create({ username: 'b', email: 'b@b.com', password: 'chicken', admin: false });
+user5 = User.create({ username: 'c', email: 'c@c.com', password: 'chicken', admin: false });
 
-user1.flights << flight1
-user2.flights << flight1
-user3.flights << flight1
-user4.flights << flight1
-user5.flights << flight1
+# user1.flights << flight1
+# user2.flights << flight1
+# user3.flights << flight1
 
-user1.flights << flight2
-user2.flights << flight2
-user3.flights << flight3
-user4.flights << flight4
-user5.flights << flight4
-
-user5.flights << flight2
-user6.flights << flight2
-user7.flights << flight2
-user8.flights << flight2
-user9.flights << flight2
-
-user1.flights << flight3
-user2.flights << flight3
-user3.flights << flight3
-user4.flights << flight3
-user5.flights << flight4
+Reservation.destroy_all
+r1 = Reservation.create({ user_id: user1.id, flight_id: flight1.id, seat_id: 'A2' })
+r2 = Reservation.create({ user_id: user2.id, flight_id: flight1.id, seat_id: 'A3' })

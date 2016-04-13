@@ -13,6 +13,11 @@
   <%= @user.email %>
 </p>
 
+<strong>Reservations</strong>
+<% @user.reservations.each do |reservation| %>
+<p> Flight: <%= link_to reservation.flight_id, flight_path(reservation.flight_id) %> </p>
+<% end %>
+<br>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Logout', login_path, :method => :delete%>

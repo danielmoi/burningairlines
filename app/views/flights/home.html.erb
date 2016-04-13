@@ -9,11 +9,17 @@
   <button id="searchBtn">Search</button>
 </script>
 
+<script>
+  app.current_user = <%= @user.to_json.html_safe %>;
+  app.current_user.reservations = <%= @user.reservations.to_json.html_safe %>
+</script>
+
 <script id="appViewTemplate" type="text/template">
   <h1>Flight Reservations</h1>
 
+
   <h2>Flights</h2>
-  <div class="flight-details flight-details__heading">Departure Date</div>
+  <div class="flight-details flight-details__heading">Date</div>
   <div class="flight-details flight-details__heading">Flight #</div>
   <div class="flight-details flight-details__heading">From</div>
   <div class="flight-details flight-details__heading">To</div>
@@ -23,20 +29,27 @@
 
   <div id="flights"></div>
   <div id="flight-reservation" class="flight-reservation__container">
-    <h3 id="flight-seats__heading"></h3>
+    <div id="flight-seats__headings--columns"></div>
     <div id="flight-seats"></div>
+    <div class="button-container"></div>
   </div>
-
-
 </script>
+
+
+
 
 <script id="flightViewTemplate" type="text/template">
   <div class="flight-details"><%%= departure_date %></div>
   <div class="flight-details flight-details__flight-number">
+    <% if @current_user.present? %>
     <a href="#<%%= id %>"><%%= flight_number %></a>
+    <% else  %>
+    <p class="needAlert"> <%%= flight_number %></p>
+    <%end%>
   </div>
   <div class="flight-details flight-details__origin"><%%= origin %></div>
   <div class="flight-details flight-details__destination"><%%= destination %></div>
   <div class="flight-details"><%%= airplane.name %></div>
   <div class="flight-details"><%%= airplane.seatsTotal %></div>
+  <div class="flight-details"><%%= airplane.seatsAvailable %></div>
 </script>
