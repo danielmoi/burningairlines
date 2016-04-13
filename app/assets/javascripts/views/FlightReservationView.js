@@ -22,9 +22,15 @@ app.FlightReservationView = Backbone.View.extend({
     if($(event.currentTarget).text() !== '') {
       return;
     }
-    // if ($('.seats__col').html() !== '') {
-      // return;
-    // }
+
+    // app.magic_users = new app.Users();
+    // app.magic_users.fetch().done(function() {
+    //   console.log('magic_users: ' + app.magic_users);
+    //   app.magic_user = app.magic_users.at(0);
+    //
+    // });
+
+
     $(event.currentTarget).html(app.current_user.username);
     console.log(event.currentTarget.dataset.seatId);
     this.seat.seat_id = event.currentTarget.dataset.seatId;
@@ -33,6 +39,8 @@ app.FlightReservationView = Backbone.View.extend({
 
   },
   renderTaken: function(something) {
+
+
 
     var usersForFlight = app.flights.get(this.model.id).attributes.users;
 
@@ -58,16 +66,16 @@ app.FlightReservationView = Backbone.View.extend({
   },
 
   reserveSeat: function(event) {
-    // console.log(event.currentTarget.dataset.seatId); // reservation.seat_id
-    // console.log(this.model.id); // reservation.flight_id
-    // console.log(app.current_user.id); // reservation.user_id
-    // console.log(this.model.get('users'));
-    // this.model.reservation
-    // Create a new reservation model
-    console.log('click');
+
+
     if (_.isEmpty(this.seat)) {
+      console.log('this seat is taken');
       return;
     }
+
+
+
+
 
     app.reservation = new app.Reservation({
       user_id: this.seat.user_id,
