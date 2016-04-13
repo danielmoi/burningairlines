@@ -76,6 +76,8 @@ app.FlightReservationView = Backbone.View.extend({
 
   render: function(flight) {
 
+
+
     $('#flight-seats, #main').empty();
     $('#flight-seats__heading').text('Seats');
 
@@ -85,6 +87,7 @@ app.FlightReservationView = Backbone.View.extend({
     var $row = $('<div>', { class: 'seats__row' });
 
     $('#main').append('<h2>Choose your seat for the flight</h2>');
+
 
     $('#flight-seats__headings--columns').append($row);
     _.times(rowNumbers, function(rowNumber) {
