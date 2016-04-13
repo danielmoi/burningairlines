@@ -11,7 +11,9 @@ class FlightsController < ApplicationController
   # GET /flights/1.json
   def show
   end
-
+  def home
+    @flight = Flight.all
+  end
   # GET /flights/new
   def new
     @flight = Flight.new

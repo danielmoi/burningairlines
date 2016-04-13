@@ -10,6 +10,9 @@ app.AppRouter = Backbone.Router.extend({
     console.log('router started');
     var appView = new app.AppView();
     appView.render();
+
+    var searchView = new app.SearchView();
+    searchView.render();
   },
 
   flightDetails: function(param) {
@@ -18,5 +21,5 @@ app.AppRouter = Backbone.Router.extend({
     var flight = app.flights.get(param);
     var flightReservationView = new app.FlightReservationView({ model: flight });
     flightReservationView.render();
-  }
+  },
 });

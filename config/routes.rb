@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root :to => 'pages#welcome'
   get 'session/new'
   get 'flights/home' => 'flights#home'
+  get 'flights/search' => 'flights#search'
   resources :reservations
 
   resources :airplanes

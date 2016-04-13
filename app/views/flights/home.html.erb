@@ -2,6 +2,12 @@
   <div id="main"></div>
 </div>
 
+<script id="appSearchTemplate" type="text/template">
+  <h3>Search Flights</h3>
+  <textarea id="origin" placeholder="From"></textarea>
+  <textarea id="destination" placeholder="To"></textarea>
+  <button id="searchBtn">Search</button>
+</script>
 
 <script id="appViewTemplate" type="text/template">
   <h1>Flight Reservations</h1>
@@ -15,10 +21,7 @@
   <div class="flight-details flight-details__heading">Total Seats</div>
   <div class="flight-details flight-details__heading">Seats Available</div>
 
-
-
   <div id="flights"></div>
-
   <div id="flight-reservation" class="flight-reservation__container">
     <h3 id="flight-seats__heading"></h3>
     <div id="flight-seats"></div>
