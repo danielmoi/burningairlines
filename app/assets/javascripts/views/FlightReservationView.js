@@ -12,6 +12,9 @@ app.FlightReservationView = Backbone.View.extend({
   seat: {},
 
   saveDetails: function(event) {
+    $('.seats__col').empty();
+    $(event.currentTarget).html(app.current_user.username);
+    console.log(event.currentTarget.dataset.seatId);
     this.seat.seat_id = event.currentTarget.dataset.seatId;
     this.seat.flight_id = this.model.id;
     this.seat.user_id = app.current_user.id;
@@ -48,6 +51,8 @@ app.FlightReservationView = Backbone.View.extend({
     var arrLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var rowNumbers = this.model.attributes.airplane.rows;
     var cols = this.model.attributes.airplane.columns;
+    var $row = $('<div>', { class: 'seats__row' });
+    $('#flight-seats__headings--columns').append($row);
 
     _.times(rowNumbers, function(rowNumber) {
       var rowLetter = arrLetters[rowNumber];
