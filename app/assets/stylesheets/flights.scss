@@ -21,6 +21,9 @@
   margin: 50px auto;
   text-align: center;
 }
+.flight-actions__container {
+  margin: 20px 0;
+}
 .seats__row {
   height: 50px;
   padding: 5px;
@@ -28,13 +31,13 @@
   margin: 10px 0;
   display: inline-block;
 }
-.seats__row:before {
-  content: 'A';
-  height: 50px;
-  line-height: 40px;
-  display: inline-block;
-  vertical-align: top;
-}
+// .seats__row:before {
+//   content: 'A';
+//   height: 50px;
+//   line-height: 40px;
+//   display: inline-block;
+//   vertical-align: top;
+// }
 .seats__col {
   height: 40px;
   width: 60px;
@@ -42,4 +45,5 @@
   margin: 0 10px;
   display: inline-block;
   cursor: pointer;
+  vertical-align: top;
 }
