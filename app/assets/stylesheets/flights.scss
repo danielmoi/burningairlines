@@ -51,11 +51,14 @@
 .seats__col {
   height: 40px;
   width: 60px;
-  border: 1px solid tomato;
   margin: 0 10px;
   display: inline-block;
   cursor: pointer;
   vertical-align: top;
+  border: 1px solid gray;
+  &:hover {
+    background: rgba(46, 204, 113,1.0);
+  }
 
 }
 .seats__col--label,
@@ -67,4 +70,9 @@
   cursor: pointer;
   vertical-align: top;
   border: none;
+}
+
+.taken:hover {
+  background: gainsboro;
+  cursor: not-allowed;
 }
