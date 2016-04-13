@@ -9,6 +9,15 @@
 .flight-details__heading {
   font-weight: 700;
 }
+.flight-details a {
+  color: tomato;
+  &:visited {
+    color: tomato;
+  }
+  &:hover {
+    background: none;
+  }
+}
 .flight-details__flight-number {
   color: tomato;
 }
