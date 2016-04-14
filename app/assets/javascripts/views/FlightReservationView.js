@@ -17,12 +17,14 @@ app.FlightReservationView = Backbone.View.extend({
 
   saveDetails: function(event) {
     $('.seats__col').not('.taken').empty();
+    $('.seats__col').removeClass('seat-selected');
     this.seat = {};
     if($(event.currentTarget).text() !== '') {
       return;
     }
 
     $(event.currentTarget).html(app.current_user.username);
+    $(event.currentTarget).addClass('seat-selected');
     console.log(event.currentTarget.dataset.seatId);
     this.seat.seat_id = event.currentTarget.dataset.seatId;
     this.seat.flight_id = this.model.id;
@@ -68,6 +70,7 @@ app.FlightReservationView = Backbone.View.extend({
         console.log('you already have a seat');
         $('.seats__col').not('.taken').empty();
         $('.message').text('You already have a seat.');
+        $('.seats__col').removeClass('seat-selected');
         return;
       }
     }
