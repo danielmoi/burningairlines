@@ -1,5 +1,6 @@
 var app = app || {};
 app.SearchView = Backbone.View.extend({
+
     events: {
         'click #searchBtn': 'searchFlight'
     },
@@ -19,5 +20,6 @@ app.SearchView = Backbone.View.extend({
         this.$el.addClass("searchDiv");
         this.$el.html(searchViewHTML);
         $("#main").prepend(this.$el);
-    }
+
+  }
 });
