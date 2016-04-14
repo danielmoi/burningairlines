@@ -5,7 +5,7 @@ app.SearchView = Backbone.View.extend({
         'click #searchBtn': 'searchFlight'
     },
     searchFlight: function(e) {
-      console.log("SEARCH FLIGHT RUNNING")
+      console.log("SEARCH FLIGHT RUNNING");
         var userOrigin = $("#origin").val();
         var userDestination = $("#destination").val();
         var searchResults = app.flights.where({ origin: userOrigin, destination: userDestination });
