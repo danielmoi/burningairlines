@@ -11,6 +11,9 @@ app.AppRouter = Backbone.Router.extend({
     var appView = new app.AppView();
     appView.render();
 
+    var searchView = new app.SearchView();
+    searchView.render();
+
     app.flights.each(function (flight) {
       var flightView = new app.FlightView({
         model: flight
@@ -36,11 +39,12 @@ app.AppRouter = Backbone.Router.extend({
     var flight = app.flights.get(param);
     var flightReservationView = new app.FlightReservationView({ model: flight });
     flightReservationView.render();
+  },
 
     // // keep refreshing render of seats grid
     // window.setInterval(function() {
     //   flightReservationView.renderTaken();
     //   // console.log('updating seats taken');
     // }, 4000);
-  }
+
 });

@@ -13,6 +13,7 @@ app.FlightView = Backbone.View.extend({
 
     // console.log(event);
     // console.log(this.model);
+    console.log('choosing flight');
     if (app.current_user === null) {
       return;
     }
@@ -24,7 +25,6 @@ app.FlightView = Backbone.View.extend({
 
   render: function(flight) {
 
-    // console.log('flightView initiated');
     console.log(this.model.attributes);
 
     this.model.attributes.airplane.seatsTotal = this.model.attributes.airplane.rows * this.model.attributes.airplane.columns;
@@ -41,8 +41,5 @@ app.FlightView = Backbone.View.extend({
     // this.$el.text( flightNumber );
     // console.log(this.$el);
     this.$el.appendTo('#flights');
-
-
-
   }
 });

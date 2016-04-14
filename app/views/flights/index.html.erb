@@ -17,7 +17,7 @@
 
     <% @flights.each do |flight| %>
       <tr>
-        <td><%= flight.flight_number %></td>
+        <td><%= link_to flight.flight_number, flight %></td>
         <td><%= flight.origin %></td>
         <td><%= flight.destination %></td>
         <td><%= flight.departure_date %></td>
