@@ -13,6 +13,7 @@ app.FlightView = Backbone.View.extend({
 
     // console.log(event);
     // console.log(this.model);
+    console.log('choosing flight');
     if (app.current_user === null) {
       return;
     }
