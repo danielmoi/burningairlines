@@ -14,6 +14,7 @@
 
 <script>
   app.current_user = <%= @current_user.to_json.html_safe %>;
+  app.current_user.reservations = <%= @current_user.reservations.to_json.html_safe %>
 </script>
 
 <script id="appViewTemplate" type="text/template">
@@ -31,6 +32,7 @@
     <div id="flight-seats__headings--columns"></div>
     <div id="flight-seats"></div>
     <div class="button-container"></div>
+    <div class="message"></div>
   </div>
 </script>
 

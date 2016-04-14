@@ -61,6 +61,18 @@ app.FlightReservationView = Backbone.View.extend({
       return;
     }
 
+    var arrRes = app.current_user.reservations;
+    // need to use vanilla JS instead of underscore because of 'this' context is wrong for underscore (can't access this.seat)
+    for (var i = 0; i < arrRes.length; i++) {
+      if (arrRes[i].flight_id === this.seat.flight_id) {
+        console.log('you already have a seat');
+        $('.seats__col').not('.taken').empty();
+        $('.message').text('You already have a seat.');
+        return;
+      }
+    }
+
+
     app.reservation = new app.Reservation({
       user_id: this.seat.user_id,
       flight_id: this.seat.flight_id,
