@@ -83,6 +83,8 @@ app.FlightReservationView = Backbone.View.extend({
     });
     console.log(app.reservation.toJSON());
     app.reservation.save();
+    $('.message').text('You have reserved ' + this.seat.seat_id);
+
   },
 
   render: function(flight) {
