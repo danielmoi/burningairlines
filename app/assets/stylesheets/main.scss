@@ -33,6 +33,10 @@ h1{
 .btn {
   display: block;
   align-items: center;
+  &:hover{
+    box-shadow: 2px 2px 2px black;
+    color: white;
+  }
 }
 
 .yield-container {
