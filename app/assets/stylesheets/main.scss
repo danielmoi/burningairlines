@@ -31,11 +31,16 @@ h1{
 }
 
 .btn {
-  display: block;
+  display: inline-block;
   align-items: center;
 }
 
 .yield-container {
   max-width: 90%;
   margin: 0 auto;
+}
+
+.search-container {
+  text-align: center;
+  padding: 20px 0;
 }
