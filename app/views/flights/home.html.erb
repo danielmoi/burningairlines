@@ -11,8 +11,10 @@
 </script>
 
 <script>
-  app.current_user = <%= @current_user.to_json.html_safe %>;
+  app.current_user = <%= @current_user.to_json.html_safe %>
+  <% if @current_user.present? %>
   app.current_user.reservations = <%= @current_user.reservations.to_json.html_safe %>
+   <% end  %>
 </script>
 
 <script id="appViewTemplate" type="text/template">
