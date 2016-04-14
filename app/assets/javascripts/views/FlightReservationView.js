@@ -17,12 +17,14 @@ app.FlightReservationView = Backbone.View.extend({
 
   saveDetails: function(event) {
     $('.seats__col').not('.taken').empty();
+    $('.seats__col').removeClass('seat-selected');
     this.seat = {};
     if($(event.currentTarget).text() !== '') {
       return;
     }
 
     $(event.currentTarget).html(app.current_user.username);
+    $(event.currentTarget).addClass('seat-selected');
     console.log(event.currentTarget.dataset.seatId);
     this.seat.seat_id = event.currentTarget.dataset.seatId;
     this.seat.flight_id = this.model.id;
@@ -61,6 +63,19 @@ app.FlightReservationView = Backbone.View.extend({
       return;
     }
 
+    var arrRes = app.current_user.reservations;
+    // need to use vanilla JS instead of underscore because of 'this' context is wrong for underscore (can't access this.seat)
+    for (var i = 0; i < arrRes.length; i++) {
+      if (arrRes[i].flight_id === this.seat.flight_id) {
+        console.log('you already have a seat');
+        $('.seats__col').not('.taken').empty();
+        $('.message').text('You already have a seat.');
+        $('.seats__col').removeClass('seat-selected');
+        return;
+      }
+    }
+
+
     app.reservation = new app.Reservation({
       user_id: this.seat.user_id,
       flight_id: this.seat.flight_id,
@@ -68,6 +83,8 @@ app.FlightReservationView = Backbone.View.extend({
     });
     console.log(app.reservation.toJSON());
     app.reservation.save();
+    $('.message').text('You have reserved ' + this.seat.seat_id);
+
   },
 
   render: function(flight) {

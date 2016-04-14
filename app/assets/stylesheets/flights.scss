@@ -87,14 +87,15 @@
   margin-left: 25px;
 }
 #searchBtn{
-  width: 75px;
-  height: 22px;
   text-align: center;
   font-weight: bold;
   margin-left: 25px;
-  vertical-align: top;
-  margin-top: 2px;
 }
 .searchDiv{
   text-align: center;
+}
+
+.seat-selected {
+  background: rgba(46, 204, 113,1.0);
+
 }
