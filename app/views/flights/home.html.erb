@@ -4,19 +4,16 @@
 
 
 <script id="appSearchTemplate" type="text/template">
-  <h1>Flight Reservations</h1>
-  <div class="appSearchTemplateShow">
-  <h2>Search Flights</h2>
+  <h4>Search Flights</h4>
   <textarea class="classSearch" id="origin" placeholder="From"></textarea>
   <textarea class="classSearch" id="destination" placeholder="To"></textarea>
-
   <button id="searchBtn">Search</button>
 </div>
 
 </script>
 
 <script>
-  app.current_user = <%= @user.to_json.html_safe %>;
+  app.current_user = <%= @current_user.to_json.html_safe %>;
 </script>
 
 <script id="appViewTemplate" type="text/template">
