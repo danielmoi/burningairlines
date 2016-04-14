@@ -1,36 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Flight number:</strong>
-  <%= @flight.flight_number %>
-</p>
 
-<p>
-  <strong>Origin:</strong>
-  <%= @flight.origin %>
-</p>
+  <h4>Flight number:</h4>
+  <li><%= @flight.flight_number %></li>
 
-<p>
-  <strong>Destination:</strong>
-  <%= @flight.destination %>
-</p>
+  <h4>Origin:</h4>
+  <li><%= @flight.origin %></li>
 
-<p>
-  <strong>Departure date:</strong>
-  <%= @flight.departure_date %>
-</p>
+  <h4>Destination:</h4>
+  <li><%= @flight.destination %></li>
+
+  <h4>Departure date:</h4>
+  <li><%= @flight.departure_date %></li>
+
+  <h4>Airplane</h4>
+  <li><%= @flight.airplane.name%></li>
 
 
 <% if @current_user.present? && @current_user.admin?%>
+  <h4>Passengers</h4>
+  <% @flight.users.each do |user| %>
+  <li><%= link_to user.username.capitalize, user_path(user) %> </li>
+  <% end %>
 
-<strong>Passengers</strong>
-<% @flight.users.each do |user| %>
-<p>  <%= link_to user.username.capitalize, user_path(user) %> </p>
-<% end %>
+
 <br>
-
-
-
 <%= link_to 'Edit', edit_flight_path(@flight) %>
 <% else %>
 <%= link_to 'Back', flights_path %>

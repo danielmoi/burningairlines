@@ -4,19 +4,17 @@
 <h1>Hello <%= @user.username.capitalize %></h1>
 
 <p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+  <h4>Username:</h4>
+  <li><%= @user.username %></li>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <h4>Email:</h4>
+  <li><%= @user.email %></li>
 
-<strong>Reservations</strong>
-<% @user.reservations.each do |reservation| %>
-<p> Flight: <%= link_to reservation.flight_id, flight_path(reservation.flight_id) %> </p>
-<% end %>
+
+  <h4>Reservations</h4>
+  <% @user.reservations.each do |reservation| %>
+  <li> Flight: <%= link_to reservation.flight_id, flight_path(reservation.flight_id) %> </li>
+  <% end %>
 <br>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

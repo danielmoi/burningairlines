@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @airplane.name %>
-</p>
+  <h4>Name:</h4>
+  <li><%= @airplane.name %></li>
 
-<p>
-  <strong>Rows:</strong>
-  <%= @airplane.rows %>
-</p>
+  <h4>Rows:</h4>
+  <li><%= @airplane.rows %></li>
 
-<p>
-  <strong>Columns:</strong>
-  <%= @airplane.columns %>
-</p>
+  <h4>Columns:</h4>
+  <li><%= @airplane.columns %></li>
+
+
+  <h4>Flights</h4>
+    <% @airplane.flights.each do |flight| %>
+    <li><%= link_to flight.flight_number, flight_path(flight) %></li>
+    <% end %>
+  <br>
+
+
 <% if @current_user.present? && @current_user.admin?%>
 <%= link_to 'Edit', edit_airplane_path(@airplane) %> |
 <% else %>
