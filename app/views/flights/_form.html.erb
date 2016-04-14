@@ -23,6 +23,13 @@
     <%= f.label :destination %><br>
     <%= f.text_field :destination %>
   </div>
+
+  <div class="field">
+    <%= f.label :airplane_id %>
+    <%= f.select :airplane_id, Airplane.pluck(:name,:id), :include_blank => true %>
+  </div>
+
+
   <div class="field">
     <%= f.label :departure_date %><br>
     <%= f.date_select :departure_date %>
