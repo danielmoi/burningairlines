@@ -10,7 +10,6 @@ app.FlightView = Backbone.View.extend({
   },
 
   displayFlight: function(event) {
-
     // console.log(event);
     // console.log(this.model);
     console.log('choosing flight');
@@ -18,12 +17,14 @@ app.FlightView = Backbone.View.extend({
       return;
     }
     console.log(this.$el);
-    this.$el.addClass('flight-selected');
+    this.$el.addClass("flight-selected");
     $('.flight-details__row').not('.flight-selected').hide();
   },
 
 
   render: function(flight) {
+
+    if (!this.model) { return; }
 
     console.log(this.model.attributes);
 
