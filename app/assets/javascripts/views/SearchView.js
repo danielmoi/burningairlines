@@ -16,6 +16,7 @@ app.SearchView = Backbone.View.extend({
     tagName: 'div',
     render: function(flight) {
         var searchViewHTML = $('#appSearchTemplate').html();
+        this.$el.addClass("searchDiv");
         this.$el.html(searchViewHTML);
         $("#main").prepend(this.$el);
     }

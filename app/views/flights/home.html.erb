@@ -3,15 +3,14 @@
 </div>
 
 <script id="appSearchTemplate" type="text/template">
-  <h3>Search Flights</h3>
-  <textarea id="origin" placeholder="From"></textarea>
-  <textarea id="destination" placeholder="To"></textarea>
+  <h4>Search Flights</h4>
+  <textarea class="classSearch" id="origin" placeholder="From"></textarea>
+  <textarea class="classSearch" id="destination" placeholder="To"></textarea>
   <button id="searchBtn">Search</button>
 </script>
 
 <script>
   app.current_user = <%= @user.to_json.html_safe %>;
-  app.current_user.reservations = <%= @user.reservations.to_json.html_safe %>
 </script>
 
 <script id="appViewTemplate" type="text/template">
