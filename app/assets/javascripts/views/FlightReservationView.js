@@ -4,7 +4,6 @@ app.FlightReservationView = Backbone.View.extend({
 
   initialize: function() {
 
-
   },
 
   el: '#main',
@@ -40,8 +39,6 @@ app.FlightReservationView = Backbone.View.extend({
   },
   renderTaken: function(something) {
 
-
-
     var usersForFlight = app.flights.get(this.model.id).attributes.users;
 
     var userNames = {};
@@ -66,17 +63,10 @@ app.FlightReservationView = Backbone.View.extend({
   },
 
   reserveSeat: function(event) {
-
-
     if (_.isEmpty(this.seat)) {
       console.log('this seat is taken');
       return;
     }
-
-
-
-
-
     app.reservation = new app.Reservation({
       user_id: this.seat.user_id,
       flight_id: this.seat.flight_id,
@@ -84,7 +74,6 @@ app.FlightReservationView = Backbone.View.extend({
     });
     console.log(app.reservation.toJSON());
     app.reservation.save();
-
   },
 
   render: function(flight) {

@@ -2,22 +2,23 @@
   <div id="main"></div>
 </div>
 
+
 <script id="appSearchTemplate" type="text/template">
-  <h3>Search Flights</h3>
+  <h1>Flight Reservations</h1>
+  <div class="appSearchTemplateShow">
+  <h2>Search Flights</h2>
   <textarea id="origin" placeholder="From"></textarea>
   <textarea id="destination" placeholder="To"></textarea>
   <button id="searchBtn">Search</button>
+</div>
+
 </script>
 
 <script>
   app.current_user = <%= @user.to_json.html_safe %>;
-  app.current_user.reservations = <%= @user.reservations.to_json.html_safe %>
 </script>
 
 <script id="appViewTemplate" type="text/template">
-  <h1>Flight Reservations</h1>
-
-
   <h2>Flights</h2>
   <div class="flight-details flight-details__heading">Date</div>
   <div class="flight-details flight-details__heading">Flight #</div>
